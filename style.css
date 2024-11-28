@@ -1,0 +1,241 @@
+/**************/
+/* CSS REMEDY */
+/**************/
+* {
+    padding:0%;
+    box-sizing: border-box;
+    margin: 0%;
+  }
+
+*, *::after, *::before {
+  box-sizing:border-box;  
+}
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+	/* startje */
+	--color-text: black;
+  --color-span: black;
+}
+
+@font-face { /* fonts van: https://www.onlinewebfonts.com/download/70f3e46b3bb904260d1b1a6e0f2edf08 */
+    font-family: "HM Sans Latin Bold";
+    src: url("https://db.onlinewebfonts.com/t/4e6e57c2a88df92df489202798f556de.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4e6e57c2a88df92df489202798f556de.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4e6e57c2a88df92df489202798f556de.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4e6e57c2a88df92df489202798f556de.svg#HM Sans Latin Bold")format("svg");
+}
+@font-face {
+    font-family: "HM Sans Regular";
+    src: url("https://db.onlinewebfonts.com/t/70f3e46b3bb904260d1b1a6e0f2edf08.eot");
+    src: url("https://db.onlinewebfonts.com/t/70f3e46b3bb904260d1b1a6e0f2edf08.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/70f3e46b3bb904260d1b1a6e0f2edf08.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/70f3e46b3bb904260d1b1a6e0f2edf08.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/70f3e46b3bb904260d1b1a6e0f2edf08.svg#HM Sans Regular")format("svg");
+}
+
+body {
+	font-family: "HM Sans Regular";
+  background-color: rgb(255, 255, 255);
+}
+
+h1 {
+	font-family: "HM Sans Latin Bold";
+}
+
+img {
+  width: 10%;
+}
+
+a, li {
+  text-decoration: none;
+}
+
+ul {
+  padding: 0;
+}
+
+nav img{
+	width: 5rem;
+	height: 3em;
+}
+
+
+.video-stukje {
+    position: relative; 
+    max-width: 800px; /* Maximale breedte van de sectie */
+    margin: 0 auto; /* Centraal uitlijnen */
+}
+
+video {
+    width: 60vw; 
+    height: auto; 
+}
+
+ul.breadcrumb { /* bron: https://www.w3schools.com/howto/howto_css_breadcrumbs.asp */
+    padding: 10px 16px;
+    list-style: none;
+    background-color: rgb(255, 255, 255);
+  }
+
+  ul.breadcrumb li {
+    display: inline;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  ul.breadcrumb li+li:before {
+    padding: 8px;
+    color: black;
+    content: "/";
+  }
+
+  ul.breadcrumb li a {
+    color: #0275d8;
+    text-decoration: none;
+  }
+  
+  ul.breadcrumb li a:hover {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  /*********/
+  /* HEADER */
+  /*********/
+
+header {
+  overflow: hidden;
+  padding: .5rem;
+  background-color: white;
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+}
+
+/* > betekent dat er wordt gekeken naar directe child in de parent*/
+ header > nav:nth-of-type(1) { 
+  position: relative;
+
+ }
+
+ header nav nav {
+  position: absolute;
+  background-color: red;
+  transform: translateX(100vw);
+ }
+
+header nav:nth-of-type(1) {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav:nth-of-type(1),
+header nav:nth-of-type(1) ul  {
+  display: flex;
+  align-items: center;
+}
+
+header nav ul li {
+  list-style-type: none;
+}
+
+header nav:nth-of-type(1) ul  {
+  gap: 1rem;
+}
+
+header nav:nth-of-type(1) button {
+  aspect-ratio: 1/1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: .5em;
+  background-color: transparent;
+  border: none;
+  margin-right: 1rem;
+  width: 1.5rem;
+}
+
+header nav:nth-of-type(1) button span {
+  width: 100%;
+  height: 2px;
+  display: block;
+  background-color: black;
+  /* transform-origin: center; */
+  transition: .2s;
+}
+
+header nav:nth-of-type(1) button.active span:nth-of-type(1) { /* button.active vergroot klikveld en zorgt voor toegnakelijkheid*/
+  rotate:50deg;
+  transform: translateY(.4rem) translateX(-.1rem);
+
+}
+
+header nav:nth-of-type(1) button.active span:nth-of-type(2) {
+  rotate:-50deg;
+  transform: translateY(-.5rem);
+
+}
+
+
+nav ul img { /* logo in de hoek */
+  width: 2rem;
+  height: 3rem;
+}
+
+
+/* MAIN */
+
+main {
+  position: relative;
+  padding-top: 4.4rem;
+}
+
+main > nav {
+  position: fixed;
+  height: 90vh;
+  background-color: #000000;
+  width: 100vw;
+  z-index: 1; /* zorgt ervoor dat de header boven de rest van de site is */
+  transform: translateX(100vw);
+  transition: .2s;
+}
+
+main > nav.active {
+  transform: translateX(0);
+}
+
+main > nav ul {
+  display: flex;
+  flex-wrap: nowrap; 
+  align-items: center;
+  flex-direction: row;
+  overflow-x: scroll;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+/* main > nav ul li {
+} */
+
+main > nav ul li a {
+  color: white;
+  display: inline-flex;
+}
+
+main > nav ul:nth-of-type(2) {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+} 
+
+main > nav ul:nth-of-type(2) li a {
+  font-size: 2.5rem;
+} 
+
+/* bron= https://www.w3schools.com/howto/howto_css_hide_scrollbars.asp */
+ul::-webkit-scrollbar { /*om scrollbar weg te halen bij tafeldecoratie, kaarsen, etc*/
+  display: none;
+}
